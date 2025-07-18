@@ -96,34 +96,11 @@ convert_rle_to_df <- function(
       max_cov <- append(max_cov, max_val)
       mean_cov <- append(mean_cov, mean_val)
 
-      idx2 <- covs[[sample]][[seg]]@values > 2
-      idx3 <- covs[[sample]][[seg]]@values > 3
-      idx4 <- covs[[sample]][[seg]]@values > 4
-      idx5 <- covs[[sample]][[seg]]@values > 5
-      idx6 <- covs[[sample]][[seg]]@values > 6
-      idx7 <- covs[[sample]][[seg]]@values > 7
-      idx8 <- covs[[sample]][[seg]]@values > 8
-      idx9 <- covs[[sample]][[seg]]@values > 9
-      idx10 <- covs[[sample]][[seg]]@values > 10
+      calculate_coverage_percentage <- function(percentage) {
+        index <- covs[[sample]][[seg]]@values > percentage
 
-      percent_2 <-
-        sum(covs[[sample]][[seg]]@lengths[idx2]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_3 <-
-        sum(covs[[sample]][[seg]]@lengths[idx3]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_4 <-
-        sum(covs[[sample]][[seg]]@lengths[idx4]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_5 <-
-        sum(covs[[sample]][[seg]]@lengths[idx5]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_6 <-
-        sum(covs[[sample]][[seg]]@lengths[idx6]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_7 <-
-        sum(covs[[sample]][[seg]]@lengths[idx7]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_8 <-
-        sum(covs[[sample]][[seg]]@lengths[idx8]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_9 <-
-        sum(covs[[sample]][[seg]]@lengths[idx9]) / sum(covs[[sample]][[seg]]@lengths)
-      percent_10 <-
-        sum(covs[[sample]][[seg]]@lengths[idx10]) / sum(covs[[sample]][[seg]]@lengths)
+        return(sum(covs[[sample]][[seg]]@lengths[index]) / sum(covs[[sample]][[seg]]@lengths))
+      }
 
       new_row <- data.frame(
         seg_id = seg_id,
@@ -137,15 +114,15 @@ convert_rle_to_df <- function(
         avg_cov = mean_val,
         max_cov = max_val,
         seg_len = seg_length,
-        cov_2_percent = percent_2,
-        cov_3_percent = percent_3,
-        cov_4_percent = percent_4,
-        cov_5_percent = percent_5,
-        cov_6_percent = percent_6,
-        cov_7_percent = percent_7,
-        cov_8_percent = percent_8,
-        cov_9_percent = percent_9,
-        cov_10_percent = percent_10
+        cov_2_percent = calculate_coverage_percentage(2),
+        cov_3_percent = calculate_coverage_percentage(3),
+        cov_4_percent = calculate_coverage_percentage(4),
+        cov_5_percent = calculate_coverage_percentage(5),
+        cov_6_percent = calculate_coverage_percentage(6),
+        cov_7_percent = calculate_coverage_percentage(7),
+        cov_8_percent = calculate_coverage_percentage(8),
+        cov_9_percent = calculate_coverage_percentage(9),
+        cov_10_percent = calculate_coverage_percentage(10)
       )
 
       model_data <- rbind(model_data, new_row)
