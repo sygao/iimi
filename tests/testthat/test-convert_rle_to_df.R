@@ -6,7 +6,7 @@ prepared_unreliable_regions <- function() {
 
 rles <- function() {
   return(
-    rles <- convert_bam_to_rle(here::here("tests", "files", "reads_1.sorted.bam"))
+    rles <- convert_bam_to_rle(here::here("tests", "files", "tvbf7jb6.bam"))
   )
 }
 
