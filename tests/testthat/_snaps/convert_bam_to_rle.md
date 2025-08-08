@@ -1,3 +1,50 @@
+# read_alignments_single
+
+    Code
+      read_bam_alignments(here::here("tests", "files", "vueoserj.bam"), paired = FALSE)
+    Output
+      GAlignments object with 10 alignments and 0 metadata columns:
+             seqnames strand         cigar    qwidth     start       end     width
+                <Rle>  <Rle>   <character> <integer> <integer> <integer> <integer>
+         [1] vueoserj      -          101M       101      7188      7288       101
+         [2] vueoserj      -          101M       101      7188      7288       101
+         [3] vueoserj      -          101M       101      7191      7291       101
+         [4] vueoserj      -      10M1I90M       101      7194      7293       100
+         [5] vueoserj      -          101M       101      7204      7304       101
+         [6] vueoserj      -       95M1D6M       101      7212      7313       102
+         [7] vueoserj      +       93M1D8M       101      7214      7315       102
+         [8] vueoserj      -      90M1D11M       101      7217      7318       102
+         [9] vueoserj      -      81M1D20M       101      7226      7327       102
+        [10] vueoserj      - 73M1D15M1D13M       101      7232      7334       103
+                 njunc
+             <integer>
+         [1]         0
+         [2]         0
+         [3]         0
+         [4]         0
+         [5]         0
+         [6]         0
+         [7]         0
+         [8]         0
+         [9]         0
+        [10]         0
+        -------
+        seqinfo: 1 sequence from an unspecified genome
+
+# read_alignments_paired
+
+    Code
+      read_bam_alignments(here::here("tests", "files", "p20hs8ax.bam"), paired = TRUE)
+    Output
+      GAlignmentPairs object with 3 pairs, strandMode=1, and 0 metadata columns:
+            seqnames strand :    ranges --    ranges
+               <Rle>  <Rle> : <IRanges> -- <IRanges>
+        [1] p20hs8ax      - : 6944-7092 -- 6944-7092
+        [2] p20hs8ax      - : 7868-8107 -- 7868-8107
+        [3] p20hs8ax      + : 7914-8100 -- 7914-8100
+        -------
+        seqinfo: 1 sequence from an unspecified genome
+
 # run_defaults
 
     Code
