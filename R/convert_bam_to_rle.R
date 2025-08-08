@@ -57,3 +57,24 @@ convert_bam_to_rle <- function(bam_file, paired = FALSE) {
 
   covs_only_mapped
 }
+
+#' read_bam_alignments
+#' 
+#' Read a BAM file into a GAlignment object. 
+#' 
+#' @param bam_file path to BAM file(s).
+#' @param paired Indicate if the sequencing paired is single-end or paired-end
+#'     reads. `TRUE` if paired-end. `FALSE` if single-end.
+#'
+#' @return A GAlignment object representing the BAM file.
+read_bam_alignments <- function(bam_file, paired = FALSE) {
+  bams <- Rsamtools::BamFile(bam_file)
+
+  if (!paired) {
+    xread <- GenomicAlignments::readGAlignments(bams)
+  } else if (paired) {
+    xread <- GenomicAlignments::readGAlignmentPairs(bams)
+  }
+
+  return(xread)
+}
