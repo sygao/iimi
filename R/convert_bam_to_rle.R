@@ -28,20 +28,15 @@
 
 convert_bam_to_rle <- function(bam_file, paired = FALSE) {
   covs <- setNames(
-    lapply(bam_file,
-           function(x) {
-             bams <- BamFile(x)
+    lapply(
+      bam_file,
+      function(x) {
+        xread <- read_bam_alignments(bam_file, paired)
 
-             if (!paired) {
-               xread <- readGAlignments(bams)
-             } else if (paired) {
-               xread <- readGAlignmentPairs(bams)
-             }
+        cov <- coverage(xread)
 
-             cov <- coverage(xread)
-
-             return(cov)
-           }),
+        return(cov)
+      }),
     sub(
       pattern = "(.*)\\.sorted.*$",
       replacement = "\\1",
