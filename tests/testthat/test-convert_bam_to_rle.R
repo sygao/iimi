@@ -1,12 +1,27 @@
 test_that("read_alignments_single", {
   expect_snapshot(
-    read_bam_alignments(here::here("tests", "files", "vueoserj.bam"), paired = FALSE)
+    read_bam_alignments(here::here("tests", "files", "tvbf7jb6.bam"), paired = FALSE)
   )
 })
 
 test_that("read_alignments_paired", {
   expect_snapshot(
     read_bam_alignments(here::here("tests", "files", "p20hs8ax.bam"), paired = TRUE)
+  )
+})
+
+test_that("run_single", {
+  expect_snapshot(
+    convert_bam_to_rle(here::here("tests", "files", "tvbf7jb6.bam"))
+  )
+})
+
+test_that("run_paired", {
+  expect_snapshot(
+    convert_bam_to_rle(
+      here::here("tests", "files", "p20hs8ax.bam"), 
+      paired = TRUE
+    )
   )
 })
 

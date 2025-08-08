@@ -1,33 +1,23 @@
 # read_alignments_single
 
     Code
-      read_bam_alignments(here::here("tests", "files", "vueoserj.bam"), paired = FALSE)
+      read_bam_alignments(here::here("tests", "files", "tvbf7jb6.bam"), paired = FALSE)
     Output
-      GAlignments object with 10 alignments and 0 metadata columns:
-             seqnames strand         cigar    qwidth     start       end     width
-                <Rle>  <Rle>   <character> <integer> <integer> <integer> <integer>
-         [1] vueoserj      -          101M       101      7188      7288       101
-         [2] vueoserj      -          101M       101      7188      7288       101
-         [3] vueoserj      -          101M       101      7191      7291       101
-         [4] vueoserj      -      10M1I90M       101      7194      7293       100
-         [5] vueoserj      -          101M       101      7204      7304       101
-         [6] vueoserj      -       95M1D6M       101      7212      7313       102
-         [7] vueoserj      +       93M1D8M       101      7214      7315       102
-         [8] vueoserj      -      90M1D11M       101      7217      7318       102
-         [9] vueoserj      -      81M1D20M       101      7226      7327       102
-        [10] vueoserj      - 73M1D15M1D13M       101      7232      7334       103
-                 njunc
-             <integer>
-         [1]         0
-         [2]         0
-         [3]         0
-         [4]         0
-         [5]         0
-         [6]         0
-         [7]         0
-         [8]         0
-         [9]         0
-        [10]         0
+      GAlignments object with 5 alignments and 0 metadata columns:
+            seqnames strand       cigar    qwidth     start       end     width
+               <Rle>  <Rle> <character> <integer> <integer> <integer> <integer>
+        [1] tvbf7jb6      +        101M       101       411       511       101
+        [2] tvbf7jb6      +        101M       101       585       685       101
+        [3] tvbf7jb6      +        101M       101       604       704       101
+        [4] tvbf7jb6      -        101M       101       633       733       101
+        [5] tvbf7jb6      -        101M       101      3695      3795       101
+                njunc
+            <integer>
+        [1]         0
+        [2]         0
+        [3]         0
+        [4]         0
+        [5]         0
         -------
         seqinfo: 1 sequence from an unspecified genome
 
@@ -44,6 +34,34 @@
         [3] p20hs8ax      + : 7914-8100 -- 7914-8100
         -------
         seqinfo: 1 sequence from an unspecified genome
+
+# run_single
+
+    Code
+      convert_bam_to_rle(here::here("tests", "files", "tvbf7jb6.bam"))
+    Output
+      $tvbf7jb6.bam
+      RleList of length 1
+      $tvbf7jb6
+      integer-Rle of length 3816 with 11 runs
+        Lengths:  410  101   73   19   29   53   19   29 2961  101   21
+        Values :    0    1    0    1    2    3    2    1    0    1    0
+      
+      
+
+# run_paired
+
+    Code
+      convert_bam_to_rle(here::here("tests", "files", "p20hs8ax.bam"), paired = TRUE)
+    Output
+      $p20hs8ax.bam
+      RleList of length 1
+      $p20hs8ax
+      integer-Rle of length 8224 with 7 runs
+        Lengths: 6943  149  775   46  187    7  117
+        Values :    0    2    0    2    4    2    0
+      
+      
 
 # run_defaults
 
