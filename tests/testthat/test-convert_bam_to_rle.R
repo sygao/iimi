@@ -16,7 +16,7 @@ test_that("run_defaults", {
   )
 })
 
-test_that("run_single", {
+test_that("run_single_bulk", {
   expect_snapshot(
     convert_bam_to_rle(
       here::here("tests", "files", "single.sorted.bam"), 
@@ -25,7 +25,7 @@ test_that("run_single", {
   )
 })
 
-test_that("run_paired", {
+test_that("run_paired_bulk", {
   expect_snapshot(
     convert_bam_to_rle(
       here::here("tests", "files", "paired_1.sorted.bam"), 

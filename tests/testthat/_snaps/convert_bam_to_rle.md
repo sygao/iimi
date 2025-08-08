@@ -81,7 +81,7 @@
       <1 more element>
       
 
-# run_single
+# run_single_bulk
 
     Code
       convert_bam_to_rle(here::here("tests", "files", "single.sorted.bam"), paired = FALSE)
@@ -117,7 +117,7 @@
       <72 more elements>
       
 
-# run_paired
+# run_paired_bulk
 
     Code
       convert_bam_to_rle(here::here("tests", "files", "paired_1.sorted.bam"), paired = TRUE)
