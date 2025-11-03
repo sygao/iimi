@@ -34,3 +34,30 @@
       <72 more elements>
       
 
+# check_single_rles
+
+    Code
+      rle_list$"0idllg2i"
+    Output
+      integer-Rle of length 3374 with 3 runs
+        Lengths: 3154  102  118
+        Values :    0    1    0
+
+---
+
+    Code
+      rle_list$"0v6dhby6"
+    Output
+      integer-Rle of length 297 with 5 runs
+        Lengths: 75 66 34 67 55
+        Values :  0  1  2  1  0
+
+---
+
+    Code
+      rle_list$"zs5acisd"
+    Output
+      integer-Rle of length 18497 with 9 runs
+        Lengths:   161    36    65     1    35    57     9    92 18041
+        Values :     0     1     2     1     2     1     2     1     0
+
