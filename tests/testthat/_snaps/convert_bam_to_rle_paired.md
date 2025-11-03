@@ -34,3 +34,30 @@
       <7 more elements>
       
 
+# check_paired_rles
+
+    Code
+      rle_list$"i6xgwyiv"
+    Output
+      integer-Rle of length 8214 with 5 runs
+        Lengths: 7857   46  187    7  117
+        Values :    0    2    4    2    0
+
+---
+
+    Code
+      rle_list$"7jjo5z0x"
+    Output
+      integer-Rle of length 7269 with 5 runs
+        Lengths: 6914   46  186    7  116
+        Values :    0    2    4    2    0
+
+---
+
+    Code
+      rle_list$"937ob21p"
+    Output
+      integer-Rle of length 394 with 9 runs
+        Lengths:   4  57  24  68 124 104   5   7   1
+        Values :   1   3   1   2   4   3   2   1   0
+
