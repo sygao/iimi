@@ -1,10 +1,8 @@
 # run_defaults
 
     Code
-      convert_bam_to_rle(here::here("tests", "files", "reads_1.sorted.bam"))
+      rle_list@listData
     Output
-      $reads_1
-      RleList of length 6
       $at4zpfgj
       integer-Rle of length 18946 with 3 runs
         Lengths:  2486   101 16359
@@ -30,7 +28,9 @@
         Lengths:  2421   101 16209
         Values :     0     1     0
       
-      ...
-      <1 more element>
+      $b96oqx77
+      integer-Rle of length 18863 with 3 runs
+        Lengths:  2422   101 16340
+        Values :     0     1     0
       
 
