@@ -1,110 +1,150 @@
 # run_with_defaults
 
     Code
-      convert_rle_to_df(rle_list)
+      df <- convert_rle_to_df(rle_list)
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, A_percent, C_percent, T_percent,
+        GC_percent)
     Output
-           seg_id   iso_id                            virus_name sample_id A_percent
-      1  at4zpfgj      ozx Grapevine leafroll-associated virus 1   reads_1 0.2681833
-      2  at4zpfgj koa3kpag Grapevine leafroll-associated virus 1   reads_1 0.2681833
-      3  qx9tftoq zz3exj6x Grapevine leafroll-associated virus 1   reads_1 0.2677694
-      4  wxn762t4 qqxfgg47 Grapevine leafroll-associated virus 1   reads_1 0.2687711
-      5  wxn762t4 qqxfgg47 Grapevine leafroll-associated virus 1   reads_1 0.2687711
-      6  0puj7meb      397 Grapevine leafroll-associated virus 1   reads_1 0.2713955
-      7  0puj7meb pb7u9x1l Grapevine leafroll-associated virus 1   reads_1 0.2713955
-      8  tfyvouo8      wb4 Grapevine leafroll-associated virus 1   reads_1 0.2709946
-      9  tfyvouo8 8mgrmyn4 Grapevine leafroll-associated virus 1   reads_1 0.2709946
-      10 b96oqx77      h9j Grapevine leafroll-associated virus 1   reads_1 0.2689392
-      11 b96oqx77 t0bfutne Grapevine leafroll-associated virus 1   reads_1 0.2689392
-         C_percent T_percent GC_percent     avg_cov max_cov seg_len cov_2_percent
-      1  0.1883247 0.2809036  0.4509131 0.005330941       1   18946             0
-      2  0.1883247 0.2809036  0.4509131 0.005330941       1   18946             0
-      3  0.1909845 0.2797125  0.4525181 0.005337420       1   18923             0
-      4  0.1843078 0.2818479  0.4493810 0.010825875       1   18659             0
-      5  0.1843078 0.2818479  0.4493810 0.010825875       1   18659             0
-      6  0.1850595 0.2815210  0.4470835 0.005439759       1   18567             0
-      7  0.1850595 0.2815210  0.4470835 0.005439759       1   18567             0
-      8  0.1884042 0.2777748  0.4512306 0.005392131       1   18731             0
-      9  0.1884042 0.2777748  0.4512306 0.005392131       1   18731             0
-      10 0.1876160 0.2793299  0.4517309 0.005354397       1   18863             0
-      11 0.1876160 0.2793299  0.4517309 0.005354397       1   18863             0
-         cov_3_percent cov_4_percent cov_5_percent cov_6_percent cov_7_percent
-      1              0             0             0             0             0
-      2              0             0             0             0             0
-      3              0             0             0             0             0
-      4              0             0             0             0             0
-      5              0             0             0             0             0
-      6              0             0             0             0             0
-      7              0             0             0             0             0
-      8              0             0             0             0             0
-      9              0             0             0             0             0
-      10             0             0             0             0             0
-      11             0             0             0             0             0
-         cov_8_percent cov_9_percent cov_10_percent
-      1              0             0              0
-      2              0             0              0
-      3              0             0              0
-      4              0             0              0
-      5              0             0              0
-      6              0             0              0
-      7              0             0              0
-      8              0             0              0
-      9              0             0              0
-      10             0             0              0
-      11             0             0              0
+           seg_id   iso_id A_percent C_percent T_percent GC_percent
+      1  at4zpfgj      ozx 0.2681833 0.1883247 0.2809036  0.4509131
+      2  at4zpfgj koa3kpag 0.2681833 0.1883247 0.2809036  0.4509131
+      3  qx9tftoq zz3exj6x 0.2677694 0.1909845 0.2797125  0.4525181
+      4  wxn762t4 qqxfgg47 0.2687711 0.1843078 0.2818479  0.4493810
+      5  wxn762t4 qqxfgg47 0.2687711 0.1843078 0.2818479  0.4493810
+      6  0puj7meb      397 0.2713955 0.1850595 0.2815210  0.4470835
+      7  0puj7meb pb7u9x1l 0.2713955 0.1850595 0.2815210  0.4470835
+      8  tfyvouo8      wb4 0.2709946 0.1884042 0.2777748  0.4512306
+      9  tfyvouo8 8mgrmyn4 0.2709946 0.1884042 0.2777748  0.4512306
+      10 b96oqx77      h9j 0.2689392 0.1876160 0.2793299  0.4517309
+      11 b96oqx77 t0bfutne 0.2689392 0.1876160 0.2793299  0.4517309
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, avg_cov, max_cov, seg_len)
+    Output
+           seg_id   iso_id     avg_cov max_cov seg_len
+      1  at4zpfgj      ozx 0.005330941       1   18946
+      2  at4zpfgj koa3kpag 0.005330941       1   18946
+      3  qx9tftoq zz3exj6x 0.005337420       1   18923
+      4  wxn762t4 qqxfgg47 0.010825875       1   18659
+      5  wxn762t4 qqxfgg47 0.010825875       1   18659
+      6  0puj7meb      397 0.005439759       1   18567
+      7  0puj7meb pb7u9x1l 0.005439759       1   18567
+      8  tfyvouo8      wb4 0.005392131       1   18731
+      9  tfyvouo8 8mgrmyn4 0.005392131       1   18731
+      10 b96oqx77      h9j 0.005354397       1   18863
+      11 b96oqx77 t0bfutne 0.005354397       1   18863
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, cov_2_percent, cov_3_percent,
+        cov_4_percent, cov_5_percent, cov_6_percent, cov_7_percent, cov_8_percent,
+        cov_9_percent, cov_10_percent, )
+    Output
+           seg_id   iso_id cov_2_percent cov_3_percent cov_4_percent cov_5_percent
+      1  at4zpfgj      ozx             0             0             0             0
+      2  at4zpfgj koa3kpag             0             0             0             0
+      3  qx9tftoq zz3exj6x             0             0             0             0
+      4  wxn762t4 qqxfgg47             0             0             0             0
+      5  wxn762t4 qqxfgg47             0             0             0             0
+      6  0puj7meb      397             0             0             0             0
+      7  0puj7meb pb7u9x1l             0             0             0             0
+      8  tfyvouo8      wb4             0             0             0             0
+      9  tfyvouo8 8mgrmyn4             0             0             0             0
+      10 b96oqx77      h9j             0             0             0             0
+      11 b96oqx77 t0bfutne             0             0             0             0
+         cov_6_percent cov_7_percent cov_8_percent cov_9_percent cov_10_percent
+      1              0             0             0             0              0
+      2              0             0             0             0              0
+      3              0             0             0             0              0
+      4              0             0             0             0              0
+      5              0             0             0             0              0
+      6              0             0             0             0              0
+      7              0             0             0             0              0
+      8              0             0             0             0              0
+      9              0             0             0             0              0
+      10             0             0             0             0              0
+      11             0             0             0             0              0
 
 # run_with_unreliable_regions
 
     Code
-      convert_rle_to_df(rle_list, unreliable_regions = prepared_unreliable_regions)
+      df <- convert_rle_to_df(rle_list, unreliable_regions = prepared_unreliable_regions)
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, A_percent, C_percent, T_percent,
+        GC_percent)
     Output
-           seg_id   iso_id                            virus_name sample_id A_percent
-      1  at4zpfgj      ozx Grapevine leafroll-associated virus 1   reads_1 0.2681833
-      2  at4zpfgj koa3kpag Grapevine leafroll-associated virus 1   reads_1 0.2681833
-      3  qx9tftoq zz3exj6x Grapevine leafroll-associated virus 1   reads_1 0.2677694
-      4  wxn762t4 qqxfgg47 Grapevine leafroll-associated virus 1   reads_1 0.2687711
-      5  wxn762t4 qqxfgg47 Grapevine leafroll-associated virus 1   reads_1 0.2687711
-      6  0puj7meb      397 Grapevine leafroll-associated virus 1   reads_1 0.2713955
-      7  0puj7meb pb7u9x1l Grapevine leafroll-associated virus 1   reads_1 0.2713955
-      8  tfyvouo8      wb4 Grapevine leafroll-associated virus 1   reads_1 0.2709946
-      9  tfyvouo8 8mgrmyn4 Grapevine leafroll-associated virus 1   reads_1 0.2709946
-      10 b96oqx77      h9j Grapevine leafroll-associated virus 1   reads_1 0.2689392
-      11 b96oqx77 t0bfutne Grapevine leafroll-associated virus 1   reads_1 0.2689392
-         C_percent T_percent GC_percent     avg_cov max_cov seg_len cov_2_percent
-      1  0.1883247 0.2809036  0.4509131 0.001477885       1   18946             0
-      2  0.1883247 0.2809036  0.4509131 0.001477885       1   18946             0
-      3  0.1909845 0.2797125  0.4525181 0.005337420       1   18923             0
-      4  0.1843078 0.2818479  0.4493810 0.010825875       1   18659             0
-      5  0.1843078 0.2818479  0.4493810 0.010825875       1   18659             0
-      6  0.1850595 0.2815210  0.4470835 0.005439759       1   18567             0
-      7  0.1850595 0.2815210  0.4470835 0.005439759       1   18567             0
-      8  0.1884042 0.2777748  0.4512306 0.001601623       1   18731             0
-      9  0.1884042 0.2777748  0.4512306 0.001601623       1   18731             0
-      10 0.1876160 0.2793299  0.4517309 0.005354397       1   18863             0
-      11 0.1876160 0.2793299  0.4517309 0.005354397       1   18863             0
-         cov_3_percent cov_4_percent cov_5_percent cov_6_percent cov_7_percent
-      1              0             0             0             0             0
-      2              0             0             0             0             0
-      3              0             0             0             0             0
-      4              0             0             0             0             0
-      5              0             0             0             0             0
-      6              0             0             0             0             0
-      7              0             0             0             0             0
-      8              0             0             0             0             0
-      9              0             0             0             0             0
-      10             0             0             0             0             0
-      11             0             0             0             0             0
-         cov_8_percent cov_9_percent cov_10_percent
-      1              0             0              0
-      2              0             0              0
-      3              0             0              0
-      4              0             0              0
-      5              0             0              0
-      6              0             0              0
-      7              0             0              0
-      8              0             0              0
-      9              0             0              0
-      10             0             0              0
-      11             0             0              0
+           seg_id   iso_id A_percent C_percent T_percent GC_percent
+      1  at4zpfgj      ozx 0.2681833 0.1883247 0.2809036  0.4509131
+      2  at4zpfgj koa3kpag 0.2681833 0.1883247 0.2809036  0.4509131
+      3  qx9tftoq zz3exj6x 0.2677694 0.1909845 0.2797125  0.4525181
+      4  wxn762t4 qqxfgg47 0.2687711 0.1843078 0.2818479  0.4493810
+      5  wxn762t4 qqxfgg47 0.2687711 0.1843078 0.2818479  0.4493810
+      6  0puj7meb      397 0.2713955 0.1850595 0.2815210  0.4470835
+      7  0puj7meb pb7u9x1l 0.2713955 0.1850595 0.2815210  0.4470835
+      8  tfyvouo8      wb4 0.2709946 0.1884042 0.2777748  0.4512306
+      9  tfyvouo8 8mgrmyn4 0.2709946 0.1884042 0.2777748  0.4512306
+      10 b96oqx77      h9j 0.2689392 0.1876160 0.2793299  0.4517309
+      11 b96oqx77 t0bfutne 0.2689392 0.1876160 0.2793299  0.4517309
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, avg_cov, max_cov, seg_len)
+    Output
+           seg_id   iso_id     avg_cov max_cov seg_len
+      1  at4zpfgj      ozx 0.001477885       1   18946
+      2  at4zpfgj koa3kpag 0.001477885       1   18946
+      3  qx9tftoq zz3exj6x 0.005337420       1   18923
+      4  wxn762t4 qqxfgg47 0.010825875       1   18659
+      5  wxn762t4 qqxfgg47 0.010825875       1   18659
+      6  0puj7meb      397 0.005439759       1   18567
+      7  0puj7meb pb7u9x1l 0.005439759       1   18567
+      8  tfyvouo8      wb4 0.001601623       1   18731
+      9  tfyvouo8 8mgrmyn4 0.001601623       1   18731
+      10 b96oqx77      h9j 0.005354397       1   18863
+      11 b96oqx77 t0bfutne 0.005354397       1   18863
+
+---
+
+    Code
+      df %>% dplyr::select(seg_id, iso_id, cov_2_percent, cov_3_percent,
+        cov_4_percent, cov_5_percent, cov_6_percent, cov_7_percent, cov_8_percent,
+        cov_9_percent, cov_10_percent, )
+    Output
+           seg_id   iso_id cov_2_percent cov_3_percent cov_4_percent cov_5_percent
+      1  at4zpfgj      ozx             0             0             0             0
+      2  at4zpfgj koa3kpag             0             0             0             0
+      3  qx9tftoq zz3exj6x             0             0             0             0
+      4  wxn762t4 qqxfgg47             0             0             0             0
+      5  wxn762t4 qqxfgg47             0             0             0             0
+      6  0puj7meb      397             0             0             0             0
+      7  0puj7meb pb7u9x1l             0             0             0             0
+      8  tfyvouo8      wb4             0             0             0             0
+      9  tfyvouo8 8mgrmyn4             0             0             0             0
+      10 b96oqx77      h9j             0             0             0             0
+      11 b96oqx77 t0bfutne             0             0             0             0
+         cov_6_percent cov_7_percent cov_8_percent cov_9_percent cov_10_percent
+      1              0             0             0             0              0
+      2              0             0             0             0              0
+      3              0             0             0             0              0
+      4              0             0             0             0              0
+      5              0             0             0             0              0
+      6              0             0             0             0              0
+      7              0             0             0             0              0
+      8              0             0             0             0              0
+      9              0             0             0             0              0
+      10             0             0             0             0              0
+      11             0             0             0             0              0
 
 # unreliable_regions_has_effect
 
