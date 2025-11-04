@@ -149,7 +149,27 @@
 # unreliable_regions_has_effect
 
     Code
-      waldo::compare(unmasked_rles, masked_rles, max_diffs = Inf, x_arg = "disabled",
+      dplyr::bind_cols(unmasked_rle_list %>% dplyr::select(seg_id, iso_id,
+        `disabled$avg_cov` = avg_cov), masked_rle_list %>% dplyr::select(
+        `enabled$avg_cov` = avg_cov))
+    Output
+           seg_id   iso_id disabled$avg_cov enabled$avg_cov
+      1  at4zpfgj      ozx      0.005330941     0.001477885
+      2  at4zpfgj koa3kpag      0.005330941     0.001477885
+      3  qx9tftoq zz3exj6x      0.005337420     0.005337420
+      4  wxn762t4 qqxfgg47      0.010825875     0.010825875
+      5  wxn762t4 qqxfgg47      0.010825875     0.010825875
+      6  0puj7meb      397      0.005439759     0.005439759
+      7  0puj7meb pb7u9x1l      0.005439759     0.005439759
+      8  tfyvouo8      wb4      0.005392131     0.001601623
+      9  tfyvouo8 8mgrmyn4      0.005392131     0.001601623
+      10 b96oqx77      h9j      0.005354397     0.005354397
+      11 b96oqx77 t0bfutne      0.005354397     0.005354397
+
+---
+
+    Code
+      waldo::compare(unmasked_rle_list, masked_rle_list, max_diffs = Inf, x_arg = "disabled",
         y_arg = "enabled")
     Output
       disabled vs enabled

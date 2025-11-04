@@ -75,16 +75,23 @@ test_that("run_with_unreliable_regions", {
 })
 
 test_that("unreliable_regions_has_effect", {
-  unmasked_rles <- convert_rle_to_df(rle_list)
+  unmasked_rle_list <- convert_rle_to_df(rle_list)
   
-  masked_rles <- convert_rle_to_df(
+  masked_rle_list <- convert_rle_to_df(
     rle_list,
     unreliable_regions = prepared_unreliable_regions,
+  )
+  
+  expect_snapshot(
+    dplyr::bind_cols(
+      unmasked_rle_list %>% dplyr::select(seg_id, iso_id, "disabled$avg_cov" = avg_cov),
+      masked_rle_list %>% dplyr::select("enabled$avg_cov" = avg_cov)
+    )
   )
 
   expect_snapshot(
     waldo::compare(
-      unmasked_rles, masked_rles, 
+      unmasked_rle_list, masked_rle_list, 
       max_diffs = Inf,
       x_arg = "disabled", y_arg = "enabled"
     )
