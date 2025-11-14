@@ -21,6 +21,23 @@ test_that("run_with_defaults", {
       dplyr::select(seg_id, iso_id, avg_cov, max_cov, seg_len)
   )
 
+  # Check average coverage against `samtools coverage reads_1.sorted.bam --ff UNMAP` output
+  samtools_coverage_df <- read.csv(
+    here::here("tests", "files", "samtools_coverage_read_sorted.csv"),
+    sep="\t"
+  )
+
+  for (ii in 1:nrow(df)) {
+    expect_equal(
+      df[ii,"avg_cov"] * 100, 
+      dplyr::filter(
+        samtools_coverage_df,
+        `X.rname` == df[ii,"seg_id"]
+      )[,"coverage"],
+      tolerance=1e-5
+    )
+  }
+
   expect_snapshot(
     df %>% 
       dplyr::select(
